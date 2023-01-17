@@ -2,12 +2,14 @@ import React from 'react';
 import { GrDocumentText, GrSearch } from 'react-icons/gr';
 import Button from '../Button/Button';
 import {
-  Wrapper,
-  Navbar,
-  Title,
-  ResizeHandle,
   Content,
+  Navbar,
+  ResizeHandle,
+  Title,
+  Wrapper,
 } from './Sidebar.styles';
+
+import useResize from '@/hooks/useResize';
 
 const ICON_SIZE = 20;
 
@@ -16,9 +18,11 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+  const { width, startResizing } = useResize();
+
   return (
     <Wrapper>
-      <Navbar>
+      <Navbar width={width}>
         <Title>Caprice</Title>
         <Button>
           <GrSearch size={ICON_SIZE} />
@@ -28,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           <GrDocumentText size={ICON_SIZE} />
           Novo Documento
         </Button>
-        <ResizeHandle />
+        <ResizeHandle onMouseDown={startResizing} />
       </Navbar>
       <Content>{children}</Content>
     </Wrapper>

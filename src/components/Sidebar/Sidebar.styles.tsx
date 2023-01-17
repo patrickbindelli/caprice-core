@@ -6,13 +6,22 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const Navbar = styled.div`
+interface NavbarProps {
+  width: number;
+}
+
+export const Navbar = styled.div.attrs(({ width }: NavbarProps) => ({
+  style: {
+    width: width,
+  },
+}))<NavbarProps>`
   background-color: ${({ theme }) => theme.colors.primary};
   height: 100%;
-  min-width: 300px;
   position: relative;
-
+  min-width: 200px;
+  max-width: 500px;
   padding: 2px 10px;
+  transition: width 500ms ease-out;
 `;
 
 export const ResizeHandle = styled.div`
@@ -50,8 +59,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 100%;
-  height: 100%;
+  flex: 1;
 `;
 
 export const Title = styled.div`
