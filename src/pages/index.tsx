@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { Sidebar } from '@/components/Sidebar';
+import { Editor } from '@/components/Editor';
 
 export default function Home() {
   return (
@@ -8,7 +10,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Hello, world!</h1>
+        <Sidebar>
+          <Editor />
+        </Sidebar>
       </main>
     </>
   );
