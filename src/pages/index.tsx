@@ -13,20 +13,6 @@ export default function Home() {
 
       <main>
         <Sidebar>
-          <button
-            style={{
-              background: 'rgb(44, 44, 44)',
-              color: 'white',
-              border: 'none',
-              outline: '0',
-              height: '30px',
-            }}
-            onClick={() => {
-              setFullscreen((e) => !e);
-            }}
-          >
-            {fullscreeen ? 'Desativar Fullscreen' : 'Ativar Fullscreen'}
-          </button>
           <Editor width={900} fullscreen={fullscreeen} />
         </Sidebar>
       </main>
