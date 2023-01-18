@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle`
   body, 
   main {
     font-family: sans-serif;
-    background-color: ${({ theme }) => theme.colors.secondary};
-    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.background.primary};
+    color: ${({ theme }) => theme.colors.text.primary};
     height: 100vh;
   }
   

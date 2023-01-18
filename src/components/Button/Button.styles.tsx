@@ -16,15 +16,21 @@ export const Container = styled.div<Props>`
 
   border: none;
   border-radius: 5px;
-  color: ${({ theme }) => theme.colors.buttons.text};
-
   margin-bottom: 1px;
 
+  color: ${({ selected, theme }) =>
+    selected
+      ? theme.colors.secondary.contrastText
+      : theme.colors.text.disabled};
+
   background: ${({ selected, theme }) =>
-    selected ? theme.colors.buttons.background : 'transparent'};
+    selected ? theme.colors.secondary.main : 'transparent'};
 
   path {
-    stroke: ${({ theme }) => theme.colors.buttons.text};
+    stroke: ${({ selected, theme }) =>
+      selected
+        ? theme.colors.secondary.contrastText
+        : theme.colors.text.disabled};
   }
 
   font-size: 15px;
@@ -32,6 +38,11 @@ export const Container = styled.div<Props>`
 
   cursor: pointer;
   :hover {
-    background: ${({ theme }) => theme.colors.buttons.background};
+    background: ${({ theme }) => theme.colors.secondary.main};
+    color: ${({ theme }) => theme.colors.secondary.contrastText};
+
+    path {
+      stroke: ${({ theme }) => theme.colors.secondary.contrastText};
+    }
   }
 `;

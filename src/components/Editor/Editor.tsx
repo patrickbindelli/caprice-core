@@ -13,10 +13,13 @@ import { TRANSFORMERS } from '@lexical/markdown';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 import { ListItemNode, ListNode } from '@lexical/list';
+import { CheckListPlugin } from '@lexical/react/LexicalCheckListPlugin';
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { AutoLinkNode, LinkNode } from '@lexical/link';
 
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+
+import { themeMappings as theme } from '@/styles/Themes/LexicalThemeWrapper';
 
 import {
   Container,
@@ -24,10 +27,6 @@ import {
   Placeholder,
   TextInput,
 } from './Editor.styles';
-
-const theme = {
-  // Theme styling goes here
-};
 
 function onError(error: Error) {
   console.error(error);
@@ -67,6 +66,7 @@ export const Editor: React.FC<EditorProps> = ({ fullscreen, width }) => {
             placeholder={<Placeholder>Enter some text...</Placeholder>}
             ErrorBoundary={LexicalErrorBoundary}
           />
+          <CheckListPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         </EditorInner>
         <HistoryPlugin />

@@ -7,6 +7,10 @@ export const Container = styled.div`
   flex: 1;
   overflow-y: auto;
   padding: 0px 100px;
+
+  @media only screen and (max-width: 900px) {
+    padding: 0px 2px;
+  }
 `;
 
 interface EditorProps {
@@ -19,7 +23,7 @@ export const EditorInner = styled.div<EditorProps>`
   position: relative;
   max-width: ${({ width }) => (width ? `${width}px` : '100%')};
   width: 100%;
-  line-height: 1.5;
+  line-height: 2;
   position: relative;
   transition: max-width 500ms ease-in-out;
 `;
@@ -29,7 +33,7 @@ export const TextInput = styled(ContentEditable)`
 `;
 
 export const Placeholder = styled.div`
-  color: #999;
+  color: ${({ theme }) => theme.colors.text.disabled};
   position: absolute;
   top: 0;
   left: 0;
