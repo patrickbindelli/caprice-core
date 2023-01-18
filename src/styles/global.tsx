@@ -16,6 +16,23 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     user-select: none;
     -webkit-user-drag: none;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #272727;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #474c50;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   }
 `;
 
