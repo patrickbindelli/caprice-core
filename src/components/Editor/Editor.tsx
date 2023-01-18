@@ -10,7 +10,6 @@ import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import { TRANSFORMERS } from '@lexical/markdown';
-
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 import { ListItemNode, ListNode } from '@lexical/list';
@@ -34,7 +33,12 @@ function onError(error: Error) {
   console.error(error);
 }
 
-export const Editor: React.FC = () => {
+interface EditorProps {
+  fullscreen: boolean;
+  width: number;
+}
+
+export const Editor: React.FC<EditorProps> = ({ fullscreen, width }) => {
   const initialConfig: InitialConfigType = {
     namespace: 'MyEditor',
     theme,
@@ -57,7 +61,7 @@ export const Editor: React.FC = () => {
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <Container>
-        <EditorInner>
+        <EditorInner width={fullscreen ? undefined : width}>
           <RichTextPlugin
             contentEditable={<TextInput />}
             placeholder={<Placeholder>Enter some text...</Placeholder>}

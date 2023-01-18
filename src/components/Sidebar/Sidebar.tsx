@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
-  const { width, startResizing } = useResize();
+  const { width, startResizing } = useResize(200, 500);
 
   return (
     <Wrapper>

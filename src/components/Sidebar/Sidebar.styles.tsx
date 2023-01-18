@@ -22,6 +22,12 @@ export const Navbar = styled.div.attrs(({ width }: NavbarProps) => ({
   max-width: 500px;
   padding: 2px 10px;
   transition: width 500ms ease-out;
+
+  @media only screen and (max-width: 900px) {
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
 `;
 
 export const ResizeHandle = styled.div`
@@ -58,8 +64,10 @@ export const ResizeHandle = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  flex: 1;
+  overflow: hidden;
+  padding: 20px 0px;
+  width: 100%;
+  gap: 20px;
 `;
 
 export const Title = styled.div`

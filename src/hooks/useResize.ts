@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useResize = () => {
+const useResize = (min: number, max: number) => {
   const [isResizing, setIsResizing] = useState(false);
   const [width, setWidth] = useState(300);
 
@@ -15,10 +15,11 @@ const useResize = () => {
   const resize = useCallback(
     (e: MouseEvent) => {
       if (isResizing) {
+        if (e.clientX <= min || e.clientX >= max) return;
         setWidth(e.clientX);
       }
     },
-    [isResizing],
+    [isResizing, min, max],
   );
 
   useEffect(() => {
