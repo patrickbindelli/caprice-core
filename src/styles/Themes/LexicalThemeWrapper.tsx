@@ -198,18 +198,15 @@ const LexicalThemeWrapper = styled.div`
     background-color: ${({ theme }) => theme.lexical.codeBlock.main};
     color: ${({ theme }) => theme.lexical.codeBlock.contrastText};
     font-family: Menlo, Consolas, Monaco, monospace;
-
     width: 100%;
     display: block;
     box-sizing: border-box;
-    padding: 34px 16px 32px 32px;
-
+    padding: 30px 16px 30px 50px;
     white-space: nowrap;
     font-size: 13px;
-    margin: 0;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin: 8px 0px;
     tab-size: 2;
+    position: relative;
 
     * {
       ::selection {
@@ -218,6 +215,42 @@ const LexicalThemeWrapper = styled.div`
       }
     }
     overflow: auto;
+  }
+  .Editor__code:before {
+    content: attr(data-gutter);
+    position: absolute;
+    background-color: ${({ theme }) => theme.lexical.codeBlock.main};
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 30px 8px 30px 0px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-right: 1px solid
+      ${({ theme }) => theme.lexical.codeBlock.contrastText};
+
+    color: ${({ theme }) => theme.lexical.codeBlock.contrastText};
+    white-space: pre-wrap;
+    text-align: right;
+    min-width: 40px;
+  }
+
+  .Editor__code:after {
+    content: attr(data-highlight-language);
+    position: absolute;
+    top: 10px;
+    left: 50px;
+
+    font-size: 10px;
+    text-transform: capitalize;
+    color: ${({ theme }) => theme.lexical.codeBlock.contrastText};
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+  }
+  .Editor__code:hover:after {
+    opacity: 1;
   }
 
   .Editor__table {
