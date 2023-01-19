@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.background.primary};
     color: ${({ theme }) => theme.colors.text.primary};
     height: 100vh;
+    overflow: hidden;
   }
   
   * {
