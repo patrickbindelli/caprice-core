@@ -9,7 +9,6 @@ export const Container = styled.div`
   overflow-y: auto;
   padding: 50px 100px 200px 100px;
   gap: 10px;
-  transition: padding 250ms ease-in-out;
 
   @media only screen and (max-width: 1024px) {
     padding: 50px 10px 200px 10px;
