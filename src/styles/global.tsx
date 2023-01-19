@@ -26,12 +26,13 @@ const GlobalStyle = createGlobalStyle`
     -webkit-user-drag: none;
 
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 5px;
       height: 10px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #272727;
+      background: transparent;
+      margin: 10px 0px;
     }
 
     ::-webkit-scrollbar-thumb {
