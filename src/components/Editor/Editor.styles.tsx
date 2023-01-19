@@ -11,7 +11,7 @@ export const Container = styled.div`
   gap: 10px;
 
   @media only screen and (max-width: 1024px) {
-    padding: 0px 2px;
+    padding: 10px 20px;
   }
 `;
 
