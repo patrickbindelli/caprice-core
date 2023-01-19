@@ -29,12 +29,23 @@ const Sidebar: React.FC<SidebarProps> = ({
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   const openSidebar = () => {
-    sidebarRef.current!.style.transform = 'translateX(0)';
+    if (sidebarRef.current) {
+      sidebarRef.current.style.opacity = '1';
+    }
+
+    setTimeout(() => {
+      sidebarRef.current!.style.transform = 'translateX(0)';
+    });
   };
 
   const closeSidebar = useCallback(() => {
-    setMobileOpen(false);
-    sidebarRef.current!.style.transform = 'translateX(-100%)';
+    if (sidebarRef.current) {
+      sidebarRef.current.style.transform = 'translateX(-100%)';
+    }
+
+    setTimeout(() => {
+      setMobileOpen(false);
+    }, 250);
   }, [setMobileOpen]);
 
   useEffect(() => {
@@ -51,10 +62,12 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <Wrapper>
-      <MobileNavbarWrapper ref={sidebarRef}>
-        <Navbar width={mobileWidth} />
-        <NavbarCloseArea onClick={closeSidebar} />
-      </MobileNavbarWrapper>
+      {mobileOpen && (
+        <MobileNavbarWrapper ref={sidebarRef}>
+          <Navbar width={mobileWidth} />
+          <NavbarCloseArea onClick={closeSidebar} />
+        </MobileNavbarWrapper>
+      )}
       <NavbarWrapper>
         <Navbar width={width} />
         <ResizeHandle onMouseDown={startResizing} />
