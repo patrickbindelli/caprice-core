@@ -6,6 +6,7 @@ import {
   OptionsWrapper,
   Button,
   MobileButton,
+  Title,
 } from './EditorHeader.styles';
 import {
   GrLinkPrevious,
@@ -36,7 +37,9 @@ const EditorHeader: React.FC<props> = ({ title, mobileClick }) => {
           <GrLinkNext size={ICON_SIZE} />
         </Button>
       </NavigationWrapper>
-      <TitleWrapper placeholder="Untitled">{title}</TitleWrapper>
+      <TitleWrapper>
+        <Title placeholder="Untitled">{title}</Title>
+      </TitleWrapper>
       <OptionsWrapper>
         <Button aria-label="edit">
           <GrEdit size={ICON_SIZE} />

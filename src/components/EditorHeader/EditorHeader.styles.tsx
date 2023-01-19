@@ -18,12 +18,37 @@ export const NavigationWrapper = styled.div`
     stroke: ${({ theme }) => theme.colors.text.primary};
   }
 `;
+
 export const TitleWrapper = styled.div`
+  width: 100%;
+  min-width: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  overflow-y: auto;
+
+  @media (max-width: 1024px) {
+    justify-content: flex-start;
+  }
+`;
+
+export const Title = styled.div`
   font-size: 15px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   :empty::before {
     content: attr(placeholder);
     cursor: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 255px;
   }
 
   :empty:focus::before {
