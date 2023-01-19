@@ -7,9 +7,17 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     background-color: ${({ theme }) => theme.colors.background.primary};
     color: ${({ theme }) => theme.colors.text.primary};
+  }
+
+  html,
+  body,
+  main,
+  body > div:first-child,
+  div#__next,
+  div#__next > div {
     height: 100%;
   }
-  
+
   * {
     box-sizing: border-box;
     padding: 0;
