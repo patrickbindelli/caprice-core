@@ -7,8 +7,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: sans-serif;
     background-color: ${({ theme }) => theme.colors.background.primary};
     color: ${({ theme }) => theme.colors.text.primary};
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
   }
   
   * {
