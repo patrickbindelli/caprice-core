@@ -6,6 +6,7 @@ import {
   NavbarCloseArea,
   NavbarWrapper,
   ResizeHandle,
+  StickyWrapper,
   Wrapper,
 } from './Sidebar.styles';
 
@@ -63,10 +64,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <Wrapper>
       {mobileOpen && (
-        <MobileNavbarWrapper ref={sidebarRef}>
-          <Navbar width={mobileWidth} />
-          <NavbarCloseArea onClick={closeSidebar} />
-        </MobileNavbarWrapper>
+        <StickyWrapper>
+          <MobileNavbarWrapper ref={sidebarRef}>
+            <Navbar width={mobileWidth} />
+            <NavbarCloseArea onClick={closeSidebar} />
+          </MobileNavbarWrapper>
+        </StickyWrapper>
       )}
       <NavbarWrapper>
         <Navbar width={width} />
