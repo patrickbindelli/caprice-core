@@ -1,6 +1,18 @@
 import { DefaultTheme } from 'styled-components';
 import CommonTheme from './CommonTheme';
 
+const BACKGROUND = '#282A36';
+const FOREGROUND = '#F8F8F2';
+const SELECTION = '#44475A';
+const COMMENT = '#6272A4';
+const RED = '#FF5555';
+const ORANGE = '#FFB86C';
+const YELLOW = '#F1FA8C';
+const GREEN = '#50FA7B';
+const PURPLE = '#BD93F9';
+const CYAN = '#8BE9FD';
+const PINK = '#FF79C6';
+
 const Dracula: DefaultTheme = {
   colors: {
     ...CommonTheme,
@@ -9,12 +21,12 @@ const Dracula: DefaultTheme = {
       secondary: '#15171b',
     },
     text: {
-      primary: '#F8F8F2',
-      disabled: '#8A8F98',
+      primary: FOREGROUND,
+      disabled: COMMENT,
     },
     primary: {
       main: '#9580ff',
-      contrastText: '#000',
+      contrastText: '#222232',
     },
     secondary: {
       main: '#222232',
@@ -24,27 +36,36 @@ const Dracula: DefaultTheme = {
   lexical: {
     text: {
       colors: {
-        paragraph: '#F8F8F2',
-        h1: '#F8F8F2',
-        h2: '#F8F8F2',
-        h3: '#F8F8F2',
-        h4: '#F8F8F2',
-        h5: '#F8F8F2',
-        h6: '#F8F8F2',
+        paragraph: FOREGROUND,
+        h1: FOREGROUND,
+        h2: FOREGROUND,
+        h3: FOREGROUND,
+        h4: FOREGROUND,
+        h5: FOREGROUND,
+        h6: FOREGROUND,
       },
     },
     codeBlock: {
-      main: '#282A36',
-      contrastText: '#F8F8F2',
+      main: BACKGROUND,
+      contrastText: FOREGROUND,
       selection: {
-        main: '#6273a4a0',
+        main: SELECTION,
       },
     },
     quote: {
       border: '#9580ff',
-      text: '#8A8F98',
+      text: COMMENT,
+    },
+    codeHighlight: {
+      comment: COMMENT,
+      ponctuation: PINK,
+      property: PURPLE,
+      selector: CYAN,
+      operator: PINK,
+      attr: PINK,
+      variable: CYAN,
+      function: CYAN,
     },
   },
 };
-
 export default Dracula;

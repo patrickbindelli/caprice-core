@@ -69,6 +69,16 @@ declare module 'styled-components' {
           contrastText?: string;
         };
       };
+      codeHighlight: {
+        comment: string;
+        ponctuation: string;
+        property: string;
+        selector: string;
+        operator: string;
+        attr: string;
+        variable: string;
+        function: string;
+      };
       quote: {
         border: string;
         text: string;

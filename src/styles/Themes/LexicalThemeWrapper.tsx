@@ -475,28 +475,28 @@ const LexicalThemeWrapper = styled.div`
     display: none;
   }
   .Editor__tokenComment {
-    color: slategray;
+    color: ${({ theme }) => theme.lexical.codeHighlight.comment};
   }
   .Editor__tokenPunctuation {
-    color: #999;
+    color: ${({ theme }) => theme.lexical.codeHighlight.ponctuation};
   }
   .Editor__tokenProperty {
-    color: #905;
+    color: ${({ theme }) => theme.lexical.codeHighlight.property};
   }
   .Editor__tokenSelector {
-    color: #690;
+    color: ${({ theme }) => theme.lexical.codeHighlight.selector};
   }
   .Editor__tokenOperator {
-    color: #9a6e3a;
+    color: ${({ theme }) => theme.lexical.codeHighlight.operator};
   }
   .Editor__tokenAttr {
-    color: #07a;
+    color: ${({ theme }) => theme.lexical.codeHighlight.attr};
   }
   .Editor__tokenVariable {
-    color: #e90;
+    color: ${({ theme }) => theme.lexical.codeHighlight.variable};
   }
   .Editor__tokenFunction {
-    color: #dd4a68;
+    color: ${({ theme }) => theme.lexical.codeHighlight.function};
   }
   .Editor__mark {
     background: rgba(255, 212, 0, 0.14);
