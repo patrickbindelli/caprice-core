@@ -5,6 +5,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 30px;
+  width: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary.main}70;
 `;
 
 export const NavigationWrapper = styled.div`
