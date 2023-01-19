@@ -3,10 +3,12 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
   overflow-y: auto;
-  padding: 0px 100px;
+  padding: 10px 100px;
+  gap: 10px;
 
   @media only screen and (max-width: 900px) {
     padding: 0px 2px;
@@ -18,12 +20,10 @@ interface EditorProps {
 }
 
 export const EditorInner = styled.div<EditorProps>`
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   position: relative;
   max-width: ${({ width }) => (width ? `${width}px` : '100%')};
   width: 100%;
-  line-height: 2;
+  line-height: 1.5;
   position: relative;
   transition: max-width 500ms ease-in-out;
 `;
@@ -38,6 +38,26 @@ export const Placeholder = styled.div`
   top: 0;
   left: 0;
   font-size: 15px;
+  user-select: none;
+  pointer-events: none;
+`;
+
+export const DocumentTitle = styled.div<EditorProps>`
+  position: relative;
+  max-width: ${({ width }) => (width ? `${width}px` : '100%')};
+  width: 100%;
+  line-height: 1.5;
+  position: relative;
+  transition: max-width 500ms ease-in-out;
+  font-size: 40px;
+`;
+
+export const TitlePlaceholder = styled.div`
+  color: ${({ theme }) => theme.colors.text.disabled};
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 40px;
   user-select: none;
   pointer-events: none;
 `;

@@ -6,9 +6,11 @@ import {
 } from '@lexical/react/LexicalComposer';
 
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
+import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
 import { TRANSFORMERS } from '@lexical/markdown';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
@@ -26,6 +28,8 @@ import {
   EditorInner,
   Placeholder,
   TextInput,
+  DocumentTitle,
+  TitlePlaceholder,
 } from './Editor.styles';
 
 function onError(error: Error) {
@@ -58,20 +62,33 @@ export const Editor: React.FC<EditorProps> = ({ fullscreen, width }) => {
   };
 
   return (
-    <LexicalComposer initialConfig={initialConfig}>
+    <>
       <Container>
-        <EditorInner width={fullscreen ? undefined : width}>
-          <RichTextPlugin
-            contentEditable={<TextInput />}
-            placeholder={<Placeholder>Enter some text...</Placeholder>}
-            ErrorBoundary={LexicalErrorBoundary}
-          />
-          <CheckListPlugin />
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-        </EditorInner>
-        <HistoryPlugin />
+        <LexicalComposer initialConfig={initialConfig}>
+          <DocumentTitle width={fullscreen ? undefined : width}>
+            <PlainTextPlugin
+              contentEditable={<TextInput />}
+              placeholder={<TitlePlaceholder>Untitled</TitlePlaceholder>}
+              ErrorBoundary={LexicalErrorBoundary}
+            />
+          </DocumentTitle>
+          <HistoryPlugin />
+        </LexicalComposer>
+        <LexicalComposer initialConfig={initialConfig}>
+          <EditorInner width={fullscreen ? undefined : width}>
+            <RichTextPlugin
+              contentEditable={<TextInput />}
+              placeholder={<Placeholder>Enter some text...</Placeholder>}
+              ErrorBoundary={LexicalErrorBoundary}
+            />
+            <CheckListPlugin />
+            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            <CodeHighlightPlugin />
+          </EditorInner>
+          <HistoryPlugin />
+        </LexicalComposer>
       </Container>
-    </LexicalComposer>
+    </>
   );
 };
 

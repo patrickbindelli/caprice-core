@@ -65,9 +65,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 20px 0px;
   width: 100%;
-  gap: 20px;
+  gap: 100px;
 `;
 
 export const Title = styled.div`

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 const useResize = (min: number, max: number) => {
   const [isResizing, setIsResizing] = useState(false);
-  const [width, setWidth] = useState(300);
+  const [width, setWidth] = useState(500);
 
   const startResizing = useCallback(() => {
     setIsResizing(true);

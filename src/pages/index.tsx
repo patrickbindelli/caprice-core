@@ -1,10 +1,7 @@
-import Head from 'next/head';
 import { Sidebar } from '@/components/Sidebar';
-import { Editor } from '@/components/Editor';
-import { useState } from 'react';
-
+import Head from 'next/head';
+import { Document } from '@/components/Document';
 export default function Home() {
-  const [fullscreeen, setFullscreen] = useState(false);
   return (
     <>
       <Head>
@@ -13,7 +10,7 @@ export default function Home() {
 
       <main>
         <Sidebar>
-          <Editor width={900} fullscreen={fullscreeen} />
+          <Document />
         </Sidebar>
       </main>
     </>
