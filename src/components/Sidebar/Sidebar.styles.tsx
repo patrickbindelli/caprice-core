@@ -14,7 +14,7 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const MobileNavbarWrapper = styled.div`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   overflow: hidden;
