@@ -14,7 +14,10 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const MobileNavbarWrapper = styled.div`
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   display: flex;
   width: 100%;
   height: 100%;
