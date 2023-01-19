@@ -5,7 +5,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 30px;
-  padding: 20px;
 `;
 
 export const NavigationWrapper = styled.div`
@@ -59,5 +58,11 @@ export const Button = styled.button`
     path {
       stroke: ${({ theme }) => theme.colors.secondary.contrastText};
     }
+  }
+`;
+
+export const MobileButton = styled(Button)`
+  @media (min-width: 1024px) {
+    display: none;
   }
 `;

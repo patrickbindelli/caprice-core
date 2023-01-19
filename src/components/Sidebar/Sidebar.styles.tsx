@@ -6,27 +6,43 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-interface NavbarProps {
-  width: number;
-}
-
-export const Navbar = styled.div.attrs(({ width }: NavbarProps) => ({
-  style: {
-    width: width,
-  },
-}))<NavbarProps>`
-  background-color: ${({ theme }) => theme.colors.background.secondary};
-  height: 100%;
+export const NavbarWrapper = styled.div`
   position: relative;
-  min-width: 200px;
-  max-width: 500px;
-  padding: 2px 10px;
-  transition: width 300ms ease-out;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
 
-  @media only screen and (max-width: 900px) {
-    position: absolute;
-    top: 0;
-    left: -100%;
+export const MobileNavbarWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  transform: translateX(-100%);
+  transition: transform 250ms ease-in-out;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const NavbarCloseArea = styled.div`
+  flex: 1;
+`;
+
+export const SidebarButton = styled.button`
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 30px;
+
+  @media (min-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -67,14 +83,4 @@ export const Content = styled.div`
   overflow: hidden;
   width: 100%;
   gap: 100px;
-`;
-
-export const Title = styled.div`
-  color: ${({ theme }) => theme.colors.text.primary};
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 1.5em;
-  height: 50px;
-  padding: 0px 10px;
 `;

@@ -5,18 +5,30 @@ import {
   TitleWrapper,
   OptionsWrapper,
   Button,
+  MobileButton,
 } from './EditorHeader.styles';
-import { GrLinkPrevious, GrLinkNext, GrMore, GrEdit } from 'react-icons/gr';
+import {
+  GrLinkPrevious,
+  GrLinkNext,
+  GrMore,
+  GrEdit,
+  GrMenu,
+} from 'react-icons/gr';
 
 interface props {
   title: string;
+  mobileClick: () => void;
 }
-const EditorHeader: React.FC<props> = ({ title }) => {
+
+const EditorHeader: React.FC<props> = ({ title, mobileClick }) => {
   const ICON_SIZE = 18;
 
   return (
     <Container>
       <NavigationWrapper>
+        <MobileButton onClick={mobileClick}>
+          <GrMenu size={ICON_SIZE} />
+        </MobileButton>
         <Button aria-label="previous">
           <GrLinkPrevious size={ICON_SIZE} />
         </Button>

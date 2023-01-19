@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: 10px 100px;
   gap: 10px;
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1024px) {
     padding: 0px 2px;
   }
 `;
