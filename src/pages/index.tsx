@@ -15,6 +15,10 @@ export default function Home() {
     <>
       <Head>
         <title>Caprice</title>
+        <meta
+          name="description"
+          content="Caprice Editor is a open-source markdown editor powered with Lexical."
+        />
       </Head>
 
       <main>
