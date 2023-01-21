@@ -37,12 +37,14 @@ export const Container = styled.div<Props>`
   font-weight: 600;
 
   cursor: pointer;
-  :hover {
-    background: ${({ theme }) => theme.colors.secondary.main};
-    color: ${({ theme }) => theme.colors.secondary.contrastText};
+  @media (hover: hover) {
+    :hover {
+      background: ${({ theme }) => theme.colors.secondary.main};
+      color: ${({ theme }) => theme.colors.secondary.contrastText};
 
-    path {
-      stroke: ${({ theme }) => theme.colors.secondary.contrastText};
+      path {
+        stroke: ${({ theme }) => theme.colors.secondary.contrastText};
+      }
     }
   }
 `;
