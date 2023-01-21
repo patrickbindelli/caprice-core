@@ -1,16 +1,16 @@
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '@/styles/global';
+import type { AppProps } from 'next/app';
 
-import { Dracula, LexicalThemeWrapper } from '@/styles/Themes';
+import { CustomThemeProvider } from '@/hooks/useTheme';
+import { LexicalThemeWrapper } from '@/styles/Themes';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={Dracula}>
+    <CustomThemeProvider>
       <GlobalStyle />
       <LexicalThemeWrapper>
         <Component {...pageProps} />
       </LexicalThemeWrapper>
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 }
