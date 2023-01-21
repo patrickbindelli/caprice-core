@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Title } from './Navbar.styles';
-import { Button } from '../Button';
+import { NavbarButton } from '../NavbarButton';
 import { GrDocumentText, GrSearch } from 'react-icons/gr';
 interface Props {
   width: number;
@@ -11,14 +11,14 @@ const Navbar: React.FC<Props> = ({ width }) => {
   return (
     <Container width={width}>
       <Title>Caprice</Title>
-      <Button>
+      <NavbarButton>
         <GrSearch size={ICON_SIZE} />
         Pesquisar
-      </Button>
-      <Button>
+      </NavbarButton>
+      <NavbarButton>
         <GrDocumentText size={ICON_SIZE} />
         Novo Documento
-      </Button>
+      </NavbarButton>
     </Container>
   );
 };
