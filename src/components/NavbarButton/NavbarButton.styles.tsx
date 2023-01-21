@@ -37,7 +37,8 @@ export const Container = styled.div<Props>`
   font-weight: 600;
 
   cursor: pointer;
-  @media (hover: hover) {
+
+  @media (min-width: 1024px) {
     :hover {
       background: ${({ theme }) => theme.colors.secondary.main};
       color: ${({ theme }) => theme.colors.secondary.contrastText};
