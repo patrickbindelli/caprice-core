@@ -8,12 +8,8 @@ export const Container = styled.div<Props>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px 10px;
   gap: 10px;
-
-  width: 100%;
-  height: 30px;
-
+  padding: 5px;
   border: none;
   border-radius: 5px;
   margin-bottom: 1px;
@@ -48,4 +44,31 @@ export const Container = styled.div<Props>`
       }
     }
   }
+
+  position: relative;
+`;
+
+export const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  position: relative;
+`;
+
+export const TextWrapper = styled.div`
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0px;
+  display: flex;
+  align-items: center;
+`;
+
+export const Text = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

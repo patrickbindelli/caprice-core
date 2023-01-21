@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import { Container } from './NavbarButton.styles';
+
+import { Container, Icon, TextWrapper, Text } from './NavbarButton.styles';
 
 interface ButtonProps {
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const Button: React.FC<ButtonProps> = ({ children, icon }) => {
   const [selected, setSelected] = useState(false);
 
   return (
     <Container selected={selected} onClick={() => setSelected((e) => !e)}>
-      {children}
+      <Icon>{icon}</Icon>
+      <TextWrapper>
+        <Text>{children}</Text>
+      </TextWrapper>
     </Container>
   );
 };
