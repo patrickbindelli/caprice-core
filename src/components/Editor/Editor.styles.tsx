@@ -33,7 +33,7 @@ export const EditorContent = styled(Editor)`
 
     pre {
       width: 100%;
-      background: ${({ theme }) => theme.colors.mauve2};
+      background: ${({ theme }) => theme.colors.mauve4};
       border-radius: 0.5rem;
       color: #fff;
       font-family: 'JetBrainsMono', monospace;
@@ -45,12 +45,17 @@ export const EditorContent = styled(Editor)`
 
     code {
       width: 100%;
-      background: ${({ theme }) => theme.colors.mauve2};
+      background: ${({ theme }) => theme.colors.mauve4};
       color: inherit;
       font-size: 0.8rem;
-      padding: 0;
+      padding: 3px;
+      border-radius: 3px;
       white-space: pre;
       overflow-x: auto;
+
+      ::selection {
+        background-color: ${({ theme }) => theme.colors.mauve8};
+      }
     }
 
     .is-editor-empty:first-child::before,
