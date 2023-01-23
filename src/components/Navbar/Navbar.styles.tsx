@@ -9,7 +9,7 @@ export const Container = styled.div.attrs(({ width }: NavbarProps) => ({
     width: width,
   },
 }))<NavbarProps>`
-  background-color: ${({ theme }) => theme.colors.background.secondary};
+  background-color: ${({ theme }) => theme.colors.mauve2};
   height: 100%;
   position: relative;
   min-width: 200px;
@@ -38,7 +38,7 @@ export const Content = styled.div`
 `;
 
 export const Footer = styled.div`
-  border-top: 1px solid ${({ theme }) => theme.colors.primary.main}70;
+  border-top: 1px solid ${({ theme }) => theme.colors.mauve6};
   padding: 10px;
 `;
 
@@ -46,6 +46,5 @@ export const Title = styled.div`
   flex: 1 1 auto;
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text.primary};
   font-size: 1.5em;
 `;

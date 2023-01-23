@@ -1,5 +1,12 @@
 import React from 'react';
-import { GrAdd, GrDocumentText, GrPerformance, GrSearch } from 'react-icons/gr';
+
+import {
+  FilePlusIcon,
+  FileTextIcon,
+  GearIcon,
+  MagnifyingGlassIcon,
+} from '@radix-ui/react-icons';
+
 import { NavbarButton } from '../NavbarButton';
 import { Container, Content, Footer, Header, Title } from './Navbar.styles';
 interface Props {
@@ -22,25 +29,16 @@ const Navbar: React.FC<Props> = ({ width }) => {
       <Content>
         {documents.map((document, index) => {
           return (
-            <NavbarButton
-              key={index}
-              icon={<GrDocumentText size={ICON_SIZE} />}
-            >
+            <NavbarButton key={index} icon={<FileTextIcon />}>
               {document.title}
             </NavbarButton>
           );
         })}
       </Content>
       <Footer>
-        <NavbarButton icon={<GrAdd size={ICON_SIZE} />}>
-          Nova Pagina
-        </NavbarButton>
-        <NavbarButton icon={<GrSearch size={ICON_SIZE} />}>
-          Pesquisar
-        </NavbarButton>
-        <NavbarButton icon={<GrPerformance size={ICON_SIZE} />}>
-          Configurações
-        </NavbarButton>
+        <NavbarButton icon={<FilePlusIcon />}>Nova Pagina</NavbarButton>
+        <NavbarButton icon={<MagnifyingGlassIcon />}>Pesquisar</NavbarButton>
+        <NavbarButton icon={<GearIcon />}>Configurações</NavbarButton>
       </Footer>
     </Container>
   );

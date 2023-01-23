@@ -1,20 +1,21 @@
 import React from 'react';
 import {
-  Container,
-  NavigationWrapper,
-  TitleWrapper,
-  OptionsWrapper,
   Button,
+  Container,
   MobileButton,
+  NavigationWrapper,
+  OptionsWrapper,
   Title,
+  TitleWrapper,
 } from './EditorHeader.styles';
+
 import {
-  GrLinkPrevious,
-  GrLinkNext,
-  GrMore,
-  GrEdit,
-  GrMenu,
-} from 'react-icons/gr';
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  DotsHorizontalIcon,
+  HamburgerMenuIcon,
+  Pencil1Icon,
+} from '@radix-ui/react-icons';
 
 interface props {
   title: string;
@@ -28,13 +29,13 @@ const EditorHeader: React.FC<props> = ({ title, mobileClick }) => {
     <Container>
       <NavigationWrapper>
         <MobileButton onClick={mobileClick}>
-          <GrMenu size={ICON_SIZE} />
+          <HamburgerMenuIcon />
         </MobileButton>
         <Button aria-label="previous">
-          <GrLinkPrevious size={ICON_SIZE} />
+          <ArrowLeftIcon />
         </Button>
         <Button aria-label="next">
-          <GrLinkNext size={ICON_SIZE} />
+          <ArrowRightIcon />
         </Button>
       </NavigationWrapper>
       <TitleWrapper>
@@ -42,10 +43,10 @@ const EditorHeader: React.FC<props> = ({ title, mobileClick }) => {
       </TitleWrapper>
       <OptionsWrapper>
         <Button aria-label="edit">
-          <GrEdit size={ICON_SIZE} />
+          <Pencil1Icon />
         </Button>
         <Button aria-label="more options">
-          <GrMore size={ICON_SIZE} />
+          <DotsHorizontalIcon />
         </Button>
       </OptionsWrapper>
     </Container>

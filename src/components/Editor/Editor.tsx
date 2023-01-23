@@ -1,94 +1,65 @@
-import React from 'react';
+import { useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import { Container, EditorContent } from './Editor.styles';
 
-import {
-  LexicalComposer,
-  InitialConfigType,
-} from '@lexical/react/LexicalComposer';
+import css from 'highlight.js/lib/languages/css';
+import js from 'highlight.js/lib/languages/javascript';
+import py from 'highlight.js/lib/languages/python';
+import ts from 'highlight.js/lib/languages/typescript';
+import html from 'highlight.js/lib/languages/xml';
+import { lowlight } from 'lowlight/lib/core';
 
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
-import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import Underline from '@tiptap/extension-underline';
+import { useState } from 'react';
+import 'tippy.js/animations/shift-toward.css';
 
-import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
-import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
-import { TRANSFORMERS } from '@lexical/markdown';
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
-import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
-import { ListItemNode, ListNode } from '@lexical/list';
-import { CheckListPlugin } from '@lexical/react/LexicalCheckListPlugin';
-import { CodeHighlightNode, CodeNode } from '@lexical/code';
-import { AutoLinkNode, LinkNode } from '@lexical/link';
+import Placeholder from '@tiptap/extension-placeholder';
+import { BubbleMenu } from '../BubbleMenu';
 
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
-import { themeMappings as theme } from '@/styles/Themes/LexicalThemeWrapper';
+const Editor = () => {
+  lowlight.registerLanguage('html', html);
+  lowlight.registerLanguage('css', css);
+  lowlight.registerLanguage('javascript', js);
+  lowlight.registerLanguage('typescript', ts);
+  lowlight.registerLanguage('python', py);
 
-import {
-  Container,
-  EditorInner,
-  Placeholder,
-  TextInput,
-  DocumentTitle,
-  TitlePlaceholder,
-} from './Editor.styles';
+  const [showBubbleMenu, setShowBubbleMenu] = useState(false);
+  const ICON_SIZE = 20;
 
-function onError(error: Error) {
-  console.error(error);
-}
+  const editor = useEditor({
+    extensions: [
+      StarterKit.configure({
+        codeBlock: false,
+      }),
+      CodeBlockLowlight.configure({
+        defaultLanguage: 'javascript',
+        lowlight,
+      }),
+      Underline,
+      Placeholder.configure({
+        placeholder: ({ node }) => {
+          if (node.type.name === 'heading') {
+            const capitalizedNodeName = capitalizeFirstLetter(node.type.name);
+            return `${capitalizedNodeName} ${node.attrs?.level}`;
+          }
 
-interface EditorProps {
-  fullscreen: boolean;
-  width: number;
-}
-
-export const Editor: React.FC<EditorProps> = ({ fullscreen, width }) => {
-  const initialConfig: InitialConfigType = {
-    namespace: 'MyEditor',
-    theme,
-    onError,
-    nodes: [
-      HeadingNode,
-      ListNode,
-      ListItemNode,
-      QuoteNode,
-      CodeNode,
-      CodeHighlightNode,
-      TableNode,
-      TableCellNode,
-      TableRowNode,
-      AutoLinkNode,
-      LinkNode,
+          return '/ for commands';
+        },
+      }),
     ],
-  };
+  });
 
   return (
-    <>
-      <Container>
-        <LexicalComposer initialConfig={initialConfig}>
-          <DocumentTitle width={fullscreen ? undefined : width}>
-            <PlainTextPlugin
-              contentEditable={<TextInput />}
-              placeholder={<TitlePlaceholder>Untitled</TitlePlaceholder>}
-              ErrorBoundary={LexicalErrorBoundary}
-            />
-          </DocumentTitle>
-          <HistoryPlugin />
-        </LexicalComposer>
-        <LexicalComposer initialConfig={initialConfig}>
-          <EditorInner width={fullscreen ? undefined : width}>
-            <RichTextPlugin
-              contentEditable={<TextInput />}
-              placeholder={<Placeholder>Enter some text...</Placeholder>}
-              ErrorBoundary={LexicalErrorBoundary}
-            />
-            <CheckListPlugin />
-            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-            <CodeHighlightPlugin />
-          </EditorInner>
-          <HistoryPlugin />
-        </LexicalComposer>
-      </Container>
-    </>
+    <Container>
+      {editor && <BubbleMenu editor={editor} />}
+
+      <EditorContent editor={editor} />
+    </Container>
   );
 };
 

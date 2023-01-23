@@ -5,8 +5,12 @@ const GlobalStyle = createGlobalStyle`
   body, 
   main {
     font-family: sans-serif;
-    background-color: ${({ theme }) => theme.colors.background.primary};
-    color: ${({ theme }) => theme.colors.text.primary};
+    background-color: ${({ theme }) => theme.colors.mauve1};
+    color: ${({ theme }) => theme.colors.mauve12};
+
+    path {
+      stroke: ${({ theme }) => theme.colors.mauve12};
+    }
   }
 
   html,
@@ -25,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
     -webkit-user-drag: none;
 
+    ::selection{
+      background-color:${({ theme }) => theme.colors.violet5};
+    }
+
     ::-webkit-scrollbar {
       width: 5px;
       height: 10px;
@@ -37,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
 
     ::-webkit-scrollbar-thumb {
       background: #474c50;
+      cursor: pointer;
     }
 
     ::-webkit-scrollbar-thumb:hover {

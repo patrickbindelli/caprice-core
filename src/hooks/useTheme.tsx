@@ -1,7 +1,6 @@
-import { createContext, useContext, useState, useCallback } from 'react';
-import { DefaultTheme } from 'styled-components';
-import { Dracula } from '@/styles/Themes';
-import { ThemeProvider } from 'styled-components';
+import { createContext, useCallback, useContext, useState } from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { darkTheme } from '../styles/Themes';
 interface ThemeContextData {
   toggleTheme(theme: DefaultTheme): void;
   theme: DefaultTheme;
@@ -16,7 +15,7 @@ interface props {
 export const useTheme = () => useContext(ThemeContext);
 
 export const CustomThemeProvider: React.FC<props> = ({ children }) => {
-  const [theme, setTheme] = useState<DefaultTheme>(Dracula);
+  const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
 
   const toggleTheme = useCallback((theme: DefaultTheme) => {
     setTheme(theme);

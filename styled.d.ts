@@ -3,87 +3,30 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme extends CommonTheme {
     colors: {
-      commom: {
-        black: string;
-        white: string;
-      };
-      grey: {
-        50: string;
-        100: string;
-        200: string;
-        300: string;
-        400: string;
-        500: string;
-        600: string;
-        700: string;
-        800: string;
-        900: string;
-        A100: string;
-        A200: string;
-        A400: string;
-        A700: string;
-      };
-      background: {
-        primary: string;
-        secondary: string;
-      };
-      text: {
-        primary: string;
-        disabled: string;
-      };
-      primary: {
-        main: string;
-        contrastText: string;
-      };
-      secondary: {
-        main: string;
-        contrastText: string;
-      };
-    };
-    lexical: {
-      text: {
-        colors: {
-          paragraph: string;
-          h1: string;
-          h2: string;
-          h3: string;
-          h4: string;
-          h5: string;
-          h6: string;
-        };
-        normal?: string;
-        bold?: string;
-        code?: string;
-        italic?: string;
-        strikethrough?: string;
-        subscript?: string;
-        superscript?: string;
-        underline?: string;
-        underlineStrikethrough?: string;
-      };
-      codeBlock: {
-        main: string;
-        contrastText: string;
-        selection: {
-          main: string;
-          contrastText?: string;
-        };
-      };
-      codeHighlight: {
-        comment: string;
-        ponctuation: string;
-        property: string;
-        selector: string;
-        operator: string;
-        attr: string;
-        variable: string;
-        function: string;
-      };
-      quote: {
-        border: string;
-        text: string;
-        background?: string;
-      };
+      violet1: string;
+      violet2: string;
+      violet3: string;
+      violet4: string;
+      violet5: string;
+      violet6: string;
+      violet7: string;
+      violet8: string;
+      violet9: string;
+      violet10: string;
+      violet11: string;
+      violet12: string;
+      mauve1: string;
+      mauve2: string;
+      mauve3: string;
+      mauve4: string;
+      mauve5: string;
+      mauve6: string;
+      mauve7: string;
+      mauve8: string;
+      mauve9: string;
+      mauve10: string;
+      mauve11: string;
+      mauve12: string;
     };
   }
 }

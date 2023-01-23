@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface Props {
   selected: boolean;
@@ -14,20 +14,8 @@ export const Container = styled.div<Props>`
   border-radius: 5px;
   margin-bottom: 1px;
 
-  color: ${({ selected, theme }) =>
-    selected
-      ? theme.colors.secondary.contrastText
-      : theme.colors.text.disabled};
-
   background: ${({ selected, theme }) =>
-    selected ? theme.colors.secondary.main : 'transparent'};
-
-  path {
-    stroke: ${({ selected, theme }) =>
-      selected
-        ? theme.colors.secondary.contrastText
-        : theme.colors.text.disabled};
-  }
+    selected ? theme.colors.mauve5 : 'transparent'};
 
   font-size: 15px;
   font-weight: 600;
@@ -35,26 +23,23 @@ export const Container = styled.div<Props>`
   cursor: pointer;
 
   @media (min-width: 1024px) {
-    :hover {
-      background: ${({ theme }) => theme.colors.secondary.main};
-      color: ${({ theme }) => theme.colors.secondary.contrastText};
-
-      path {
-        stroke: ${({ theme }) => theme.colors.secondary.contrastText};
+    ${({ theme, selected }) => {
+      if (!selected) {
+        return css`
+          :hover {
+            background: ${theme.colors.mauve4};
+          }
+        `;
       }
-    }
+    }}
   }
-
-  position: relative;
 `;
 
 export const Icon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 100%;
-  position: relative;
 `;
 
 export const TextWrapper = styled.div`

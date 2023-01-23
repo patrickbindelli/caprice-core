@@ -74,7 +74,7 @@ export const ResizeHandle = styled.div`
     height: 100%;
     width: 1px;
     transition: width 250ms ease-in-out, background-color 250ms ease-in-out;
-    background: ${({ theme }) => theme.colors.primary.main}70;
+    background: ${({ theme }) => theme.colors.mauve6};
   }
 
   :hover::before {
@@ -82,7 +82,7 @@ export const ResizeHandle = styled.div`
     display: block;
     height: 100%;
     width: 2px;
-    background: ${({ theme }) => theme.colors.primary.main};
+    background: ${({ theme }) => theme.colors.mauve7};
   }
 `;
 

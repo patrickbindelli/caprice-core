@@ -1,63 +1,117 @@
 import styled from 'styled-components';
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
+
+import { EditorContent as Editor } from '@tiptap/react';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  overflow-y: auto;
-  padding: 50px 100px 200px 100px;
-  gap: 10px;
+`;
 
-  @media only screen and (max-width: 1024px) {
-    padding: 50px 10px 200px 10px;
+export const EditorContent = styled(Editor)`
+  width: 100%;
+  height: 100%;
+
+  .ProseMirror:focus {
+    outline: none;
   }
-`;
 
-interface EditorProps {
-  width: number | undefined;
-}
+  .ProseMirror {
+    background: none;
+    line-height: 2;
 
-export const EditorInner = styled.div<EditorProps>`
-  position: relative;
-  max-width: ${({ width }) => (width ? `${width}px` : '100%')};
-  width: 100%;
-  line-height: 1.5;
-  position: relative;
-  transition: max-width 500ms ease-in-out;
-`;
+    blockquote {
+      margin: 0;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      font-size: 15px;
 
-export const TextInput = styled(ContentEditable)`
-  outline: 0;
-`;
+      border-left-color: ${({ theme }) => theme.colors.violet6};
+      border-left-width: 4px;
+      border-left-style: solid;
+      padding-left: 16px;
+    }
 
-export const Placeholder = styled.div`
-  color: ${({ theme }) => theme.colors.text.disabled};
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 15px;
-  user-select: none;
-  pointer-events: none;
-`;
+    pre {
+      width: 100%;
+      background: ${({ theme }) => theme.colors.mauve2};
+      border-radius: 0.5rem;
+      color: #fff;
+      font-family: 'JetBrainsMono', monospace;
+      padding: 0.75rem 1rem;
+      margin: 12px 0px;
+      white-space: pre;
+      overflow-x: auto;
+    }
 
-export const DocumentTitle = styled.div<EditorProps>`
-  position: relative;
-  max-width: ${({ width }) => (width ? `${width}px` : '100%')};
-  width: 100%;
-  line-height: 1.5;
-  position: relative;
-  transition: max-width 500ms ease-in-out;
-  font-size: 40px;
-`;
+    code {
+      width: 100%;
+      background: ${({ theme }) => theme.colors.mauve2};
+      color: inherit;
+      font-size: 0.8rem;
+      padding: 0;
+      white-space: pre;
+      overflow-x: auto;
+    }
 
-export const TitlePlaceholder = styled.div`
-  color: ${({ theme }) => theme.colors.text.disabled};
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 40px;
-  user-select: none;
-  pointer-events: none;
+    .is-editor-empty:first-child::before,
+    .is-empty:first-child::before {
+      color: ${({ theme }) => theme.colors.mauve11};
+      content: attr(data-placeholder);
+      float: left;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: blue;
+    }
+
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-attribute,
+    .hljs-tag,
+    .hljs-name,
+    .hljs-regexp,
+    .hljs-link,
+    .hljs-name,
+    .hljs-selector-id,
+    .hljs-selector-class {
+      color: #f98181;
+    }
+
+    .hljs-number,
+    .hljs-meta,
+    .hljs-built_in,
+    .hljs-builtin-name,
+    .hljs-literal,
+    .hljs-type,
+    .hljs-params {
+      color: #fbbc88;
+    }
+
+    .hljs-string,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: #b9f18d;
+    }
+
+    .hljs-title,
+    .hljs-section {
+      color: #faf594;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+      color: #70cff8;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: 700;
+    }
+  }
 `;

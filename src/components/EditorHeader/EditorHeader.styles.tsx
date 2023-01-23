@@ -6,17 +6,13 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 5px;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.primary.main}70;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.mauve3};
 `;
 
 export const NavigationWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  path {
-    stroke: ${({ theme }) => theme.colors.text.primary};
-  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -60,10 +56,6 @@ export const OptionsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.text.primary};
-  path {
-    stroke: ${({ theme }) => theme.colors.text.primary};
-  }
 `;
 
 export const Button = styled.button`
@@ -81,10 +73,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: ${({ theme }) => theme.colors.secondary.main};
-    path {
-      stroke: ${({ theme }) => theme.colors.secondary.contrastText};
-    }
+    background-color: ${({ theme }) => theme.colors.mauve4};
   }
 `;
 
