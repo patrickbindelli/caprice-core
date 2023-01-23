@@ -17,8 +17,15 @@ interface Props {
 const BubbleMenu: React.FC<Props> = ({ editor }) => {
   return (
     <Container
-      updateDelay={500}
-      tippyOptions={{ animation: 'shift-toward', duration: 250 }}
+      updateDelay={0}
+      tippyOptions={{
+        arrow: true,
+        placement: 'auto',
+        animation: 'shift-toward',
+        duration: [500, 0],
+        moveTransition: 'transform 250ms 100ms ease-in-out',
+        offset: [0, 20],
+      }}
       editor={editor}
     >
       <BubbleMenuButton

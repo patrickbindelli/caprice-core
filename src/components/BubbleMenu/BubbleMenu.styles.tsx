@@ -9,7 +9,6 @@ export const Container = styled(BubbleMenu)`
   border-radius: 5px;
 
   height: 30px;
-  margin: 10px;
 `;
 
 interface BubbleMenuButtonProps {
