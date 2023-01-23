@@ -11,7 +11,6 @@ import { lowlight } from 'lowlight/lib/core';
 
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import Underline from '@tiptap/extension-underline';
-import { useState } from 'react';
 import 'tippy.js/animations/shift-toward.css';
 
 import Placeholder from '@tiptap/extension-placeholder';
@@ -27,9 +26,6 @@ const Editor = () => {
   lowlight.registerLanguage('javascript', js);
   lowlight.registerLanguage('typescript', ts);
   lowlight.registerLanguage('python', py);
-
-  const [showBubbleMenu, setShowBubbleMenu] = useState(false);
-  const ICON_SIZE = 20;
 
   const editor = useEditor({
     extensions: [
@@ -48,7 +44,11 @@ const Editor = () => {
             return `${capitalizedNodeName} ${node.attrs?.level}`;
           }
 
-          return '/ for commands';
+          if (node.type.name === 'paragraph') {
+            return `/ for commands`;
+          }
+
+          return '';
         },
       }),
     ],
