@@ -87,7 +87,7 @@ export const ResizeHandle = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  word-break: break-all;
   width: 100%;
 `;

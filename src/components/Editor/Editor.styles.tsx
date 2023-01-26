@@ -9,7 +9,8 @@ export const Container = styled.div`
 
 export const EditorContent = styled(Editor)`
   width: 100%;
-  height: 100%;
+  display: block;
+  box-sizing: border-box;
 
   .ProseMirror:focus {
     outline: none;
@@ -18,6 +19,12 @@ export const EditorContent = styled(Editor)`
   .ProseMirror {
     background: none;
     line-height: 2;
+    width: 100%;
+
+    * {
+      box-sizing: border-box;
+      overflow: hidden;
+    }
 
     blockquote {
       margin: 0;
@@ -32,30 +39,26 @@ export const EditorContent = styled(Editor)`
     }
 
     pre {
-      width: 100%;
       background: ${({ theme }) => theme.colors.mauve4};
       border-radius: 0.5rem;
       color: #fff;
       font-family: 'JetBrainsMono', monospace;
       padding: 0.75rem 1rem;
       margin: 12px 0px;
-      white-space: pre;
-      overflow-x: auto;
+
+      * {
+        ::selection {
+          background-color: ${({ theme }) => theme.colors.mauve8};
+        }
+      }
     }
 
     code {
-      width: 100%;
       background: ${({ theme }) => theme.colors.mauve4};
       color: inherit;
       font-size: 0.8rem;
       padding: 3px;
       border-radius: 3px;
-      white-space: pre;
-      overflow-x: auto;
-
-      ::selection {
-        background-color: ${({ theme }) => theme.colors.mauve8};
-      }
     }
 
     .is-editor-empty:first-child::before,
