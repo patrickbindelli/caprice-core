@@ -9,6 +9,8 @@ import {
 
 import { NavbarButton } from '../NavbarButton';
 import { Container, Content, Footer, Header, Title } from './Navbar.styles';
+import { useUser } from '@supabase/auth-helpers-react';
+
 interface Props {
   width: number;
 }
@@ -20,11 +22,12 @@ const documents = [
 ];
 
 const Navbar: React.FC<Props> = ({ width }) => {
-  const ICON_SIZE = 20;
+  const user = useUser();
+
   return (
     <Container width={width}>
       <Header>
-        <Title>Caprice</Title>
+        <Title>{user?.user_metadata.name}</Title>
       </Header>
       <Content>
         {documents.map((document, index) => {

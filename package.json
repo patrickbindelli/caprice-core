@@ -13,6 +13,10 @@
     "@next/font": "13.1.2",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-icons": "^1.1.1",
+    "@supabase/auth-helpers-nextjs": "^0.5.4",
+    "@supabase/auth-helpers-react": "^0.3.1",
+    "@supabase/auth-ui-react": "^0.2.6",
+    "@supabase/supabase-js": "^2.6.0",
     "@tiptap/extension-code-block-lowlight": "^2.0.0-beta.209",
     "@tiptap/extension-placeholder": "^2.0.0-beta.209",
     "@tiptap/extension-underline": "^2.0.0-beta.209",
@@ -47,6 +51,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "2.8.3"
+    "prettier": "2.8.3",
+    "supabase": "^1.35.4"
   }
 }
